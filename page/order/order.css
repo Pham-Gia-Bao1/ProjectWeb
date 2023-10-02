@@ -23,7 +23,113 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
-
-.container__order {
-    margin-top: 150px;
+/* information__order */
+main {
+    margin-top: 130px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
+.container__order{
+    display: flex;
+    gap: 30px;
+}
+.information__order {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: aqua;
+}
+
+.information__order h1 {
+    font-weight: var(--font-size-heading2);
+    
+}
+
+.information__order input[type="text"] {
+    width: 100%;
+    padding: 15px 45px;
+    border: 1px solid var(--orange-light-color);
+}
+
+.information__order .contact__order, .information__order .location  {
+    display: flex;
+    gap: 10px;
+}
+
+.information__order .contact__order input[type="text"],.information__order .location input[type="text"]   {
+    flex-basis: 50%;
+
+}
+
+/* product */
+.product__order {
+    margin-left: 10px;
+    margin-top: 60px;
+}
+
+.total__price__order {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.total__price__order h3 {
+    font-weight: var(--font-size-heading3);
+    
+}
+
+.product__infor__order {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.image__order {
+    width: 160px;
+    height: 180px;
+}
+
+.image__order img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product__infor__order p {
+    margin-left: 10px;
+    font-weight: var(--font-size-paragraph);
+    font-size: var(--font-size-heading3);
+}
+#product__price__order{
+    color: var(--orange-color);
+}
+/* btn */
+.btn__order__box {
+    width: 30%;
+}
+
+.btn__order__box #btn__order__item {
+    border-radius: 20px;
+    width: 100%;
+    height: 50px;
+    background-color: #ff902a;
+    color: #fff;
+    border:none ;
+}
+
+.btn__order__box button:hover {
+    background-color: #f4ae26;
+    cursor: pointer;
+}   
+/* 
+
+.image__order{
+    width: 160px;
+    height: 180px;
+}
+#product__img__order{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
