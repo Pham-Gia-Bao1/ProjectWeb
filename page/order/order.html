@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./product_detail.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <title>Document</title>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- style -->
     <link rel="stylesheet" href="../homePage/home.css">
     <link rel="stylesheet" href="../homePage/reponsive_nav.css">
     <link rel="stylesheet" href="../product_detail/product_detail.css">
+    <!-- css for order -->
+    <link rel="stylesheet" href="./order.css">
+    <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
@@ -28,14 +24,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Home</title>
 
-
-
+    <!-- javascript -->
+    <script src="/services/order.js"></script>    
+    <script src="/services/home.js" ></script>
+    <title>Order-page</title>
 </head>
-
 <body>
-
     <div class="header">
         <!-- navber -->
         <nav class="navbar">
@@ -77,75 +72,24 @@
         </nav>
     </div>
     <main>
-        <div class="container__productDetail" id="container__productDetail">
-            <!-- photo's area -->
-            <div class="con_item_productDetail con_item_productDetail1">
-                <div class="main__img__box">
-                    <img id="main__img" src="/images/img_product/Americano1.jpg" alt="Photo">
+        <div class="container__order">
+            <div class="information__order">
+                <h1>Slipping information</h1>
+                <input type="text" id="name__order" placeholder="Full name">
+                <div class="contact__order">
+                    <input type="text" id="email__order" placeholder="Email">
+                    <input type="text" id="phone__order" placeholder="Phone number">
                 </div>
-                <div class="secondary__img">
-
-                    <div class="secodary__img__item">
-                        <img id="item__img1" class="item__img" src="/images/img_product/Americano2.jpg" alt="Photo">
-                    </div>
-                    <div class="secodary__img__item">
-                        <img id="item__img2" class="item__img" src="/images/img_product/Americano3.jpg" alt="Photo">
-                    </div>
-                    <div class="secodary__img__item">
-                        <img id="item__img3" class="item__img" src="/images/img_product/Americano2.jpg" alt="Photo">
-                    </div>
+                <input type="text" id="address__order" placeholder="Address">
+                <div class="location">
+                    <input type="text" id="province__order" placeholder="Province">
+                    <input type="text" id="district__order" placeholder="District">
                 </div>
             </div>
-            <!-- information of product -->
-            <div class="con_item_productDetail con_item_productDetail2">
-                <h2 id="product__name">Crushed chocolate</h2>
-                <div class="valuate">
-                    <div id="rating">
-                        <span class="star">&#9734;</span>
-                        <span class="star">&#9734;</span>
-                        <span class="star">&#9734;</span>
-                        <span class="star">&#9734;</span>
-                        <span class="star">&#9734;</span>
-                    </div>
-
-                </div>
-                <div class="discribe">
-                    <p>100 riviews</p>
-                    <div class="price">
-                        <p id="new__price">19.000 VND</p>
-                        <p id="old__price">35.000 VND</p>
-                    </div>
-                    <p id="describe">Crushed chocolate refers to broken or crushed pieces of chocolate commonly used in
-                        baking and
-                        desserts. It adds flavor, texture, and visual appeal to treats like cookies, cakes, and ice
-                        creams.
-                    </p>
-                </div>
-                <div class="qnty__box">
-                    <p>
-                        Quantity purchased :
-                    </p>
-                    <div class="btn__box">
-                        <button onclick="decrement()">-</button>
-                        <input id="input__qty" type="number" min="0">
-                        <button onclick="increment()">+</button>
-                    </div>
-                </div>
-
-                <div class="btn__buy">
-                    <button id="product__btn__add" class="btn_add_qtt" type="button" onclick="addToCart()">
-                        <img src="/images/img_icon/icon shoping cart.svg" alt="">
-                        Add cart
-                    </button>
-                    <button id="product__btn__buy" class="btn_add_qtt" type="button" onclick="buy()">Buy</button>
-                </div>
+            <div class="product__order">
+                <h3>Total amount:</h3>
+                <p id="price__order">100.000 VND</p>
             </div>
-        </div>
-        <!-- comment -->
-        <h2 id="viewMore">View more product</h2>
-        <div id="product">
-            <!-- Product container -->
-
         </div>
     </main>
     <div class="footer">
@@ -180,8 +124,5 @@
             <div class="footer-content2">Coffee suitable for you</div>
         </div>
     </div>
-    <script src="/services/product_detail.js"></script>
-    <script src="/services/home.js"></script>
 </body>
-
 </html>
