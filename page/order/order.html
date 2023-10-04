@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- style -->
     <link rel="stylesheet" href="../homePage/home.css">
     <link rel="stylesheet" href="../homePage/reponsive_nav.css">
-    <link rel="stylesheet" href="../product_detail/product_detail.css">
     <!-- css for order -->
-    <link rel="stylesheet" href="./order.css">
+    <link rel="stylesheet" href="/page/order/order.css">
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,10 +26,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- javascript -->
-    <script src="/services/order.js"></script>    
-    <script src="/services/home.js" ></script>
+    <script src="/services/home.js"></script>
     <title>Order-page</title>
 </head>
+
 <body>
     <div class="header">
         <!-- navber -->
@@ -75,34 +75,47 @@
         <div class="container__order">
             <div class="information__order">
                 <h1>Slipping information</h1>
-                <input type="text" id="name__order" placeholder="Full name">
+                <input type="text" id="name__order" placeholder="Full name" required>
                 <div class="contact__order">
-                    <input type="text" id="email__order" placeholder="Email">
-                    <input type="text" id="phone__order" placeholder="Phone number">
+                    <input type="email" id="email__order" placeholder="Email">
+                    <input type="text" id="phone__order" placeholder="Phone number" required>
                 </div>
                 <input type="text" id="address__order" placeholder="Address">
                 <div class="location">
-                    <input type="text" id="province__order" placeholder="Province">
-                    <input type="text" id="district__order" placeholder="District">
+                    <select id="province__order">Province</select>
+                    <select id="district__order">District</select>
+                </div>
+                <div class="btn__order__box">
+                    <button id="btn__order__item" type="button" onclick="Order()">Order</button>
                 </div>
             </div>
             <div class="product__order">
-                <div class="total__price__order">
-                    <h3 >Total amount:</h3>
-                    <h3 id="price__order">100.000 VND</h3>
-                </div>
-                <div class="product__infor__order">
-                    <div class="image__order">
-                        <img id="product__img__order" src="/images/img_product/Arabica1.jpg" alt="Product">
+                <div class="product__order1">
+                    <div class="total__price__order">
+                        <h3>Total amount:</h3>
+                        <h3 id="price__order">100.000 VND</h3>
                     </div>
-                    <p id="procuct__name__order"> Arabica</p>
-                    <p id="product__price__order">100.000 VND</p>
+                    <div class="product__infor__order">
+                        <div class="image__order">
+                            <img id="product__img__order" src="/images/img_product/Arabica1.jpg" alt="Product">
+                        </div>
+                        <p id="procuct__name__order"> Arabica</p>
+                        <p id="product__price__order">100.000 VND</p>
+                    </div>
                 </div>
+                <div class="product__order1">
+                    <div class="product__infor__order">
+                        <div class="image__order">
+                            <img id="product__img__order" src="/images/img_product/Arabica1.jpg" alt="Product">
+                        </div>
+                        <p id="procuct__name__order"> Arabica</p>
+                        <p id="product__price__order">100.000 VND</p>
+                    </div>
+                </div>
+                
             </div>
         </div>
-        <div class="btn__order__box">
-            <button id="btn__order__item" type="button" onclick="Order()">Order</button>   
-        </div>
+        <script src="/services/order.js"></script>
     </main>
     <!-- <div class="footer">
         <div class="row-first">
@@ -137,4 +150,5 @@
         </div>
     </div> -->
 </body>
+
 </html>

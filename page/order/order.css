@@ -28,17 +28,20 @@ main {
     margin-top: 130px;
     display: flex;
     flex-direction: column;
+    margin: 10% 5%; 
     gap: 30px;
 }
 .container__order{
     display: flex;
-    gap: 30px;
+    width: 100%;
+    gap: 80px;
 }
 .information__order {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    background-color: aqua;
+    gap: 25px;
+    width: 50%;
+
 }
 
 .information__order h1 {
@@ -46,26 +49,47 @@ main {
     
 }
 
-.information__order input[type="text"] {
+.information__order input,.information__order .location select {
     width: 100%;
-    padding: 15px 45px;
-    border: 1px solid var(--orange-light-color);
+    height: 5rem;
+    border: 2px solid var(--orange-light-color);
+    padding-left: 5%;
 }
-
 .information__order .contact__order, .information__order .location  {
     display: flex;
-    gap: 10px;
+    gap: 30px;
 }
 
-.information__order .contact__order input[type="text"],.information__order .location input[type="text"]   {
+.information__order .contact__order input,.information__order .location select   {
     flex-basis: 50%;
-
 }
+.information__order .location select{
+    padding-right: 5px;
+}
+/* btn */
+.btn__order__box {
+    width: 90%;
+    margin-left: 5%;
+}
+
+.btn__order__box #btn__order__item {
+    border-radius: 20px;
+    width: 100%;
+    height: 50px;
+    background-color: #ff902a;
+    color: #fff;
+    border:none ;
+}
+
+.btn__order__box button:hover {
+    background-color: #f4ae26;
+    cursor: pointer;
+}   
 
 /* product */
 .product__order {
-    margin-left: 10px;
-    margin-top: 60px;
+    margin-top: 80px;
+
 }
 
 .total__price__order {
@@ -88,6 +112,7 @@ main {
 .image__order {
     width: 160px;
     height: 180px;
+    margin-top: 5%;
 }
 
 .image__order img {
@@ -97,31 +122,13 @@ main {
 }
 
 .product__infor__order p {
-    margin-left: 10px;
     font-weight: var(--font-size-paragraph);
     font-size: var(--font-size-heading3);
 }
 #product__price__order{
-    color: var(--orange-color);
+    color: var(--orange-color); 
+    font-weight: bold;
 }
-/* btn */
-.btn__order__box {
-    width: 30%;
-}
-
-.btn__order__box #btn__order__item {
-    border-radius: 20px;
-    width: 100%;
-    height: 50px;
-    background-color: #ff902a;
-    color: #fff;
-    border:none ;
-}
-
-.btn__order__box button:hover {
-    background-color: #f4ae26;
-    cursor: pointer;
-}   
 /* 
 
 .image__order{
