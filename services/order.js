@@ -90,8 +90,33 @@ const provinces = [
   {
     province: "Bình Phước",
     district: ["Thị xã Đồng Xoài", "Thị xã Bình Long", "Huyện Bù Đốp", "Huyện Bù Đăng", "Huyện Bù Gia Mập", "Huyện Chơn Thành", "Huyện Đồng Phú", "Huyện Hớn Quản", "Huyện Lộc Ninh", "Huyện Phú Riềng"]
+  },
+  {
+    province: "Quảng Trị",
+    district: ["Đông Hà", "Quảng Trị", "Vĩnh Linh", "Hướng Hóa", "Gio Linh", "Đa Krông", "Cam Lộ", "Triệu Phong", "Hải Lăng", "Cồn Cỏ"]
+  },
+  {
+    province: "Vĩnh Long",
+    district: ["Vĩnh Long", "Long Hồ", "Mang Thít", "Vũng Liêm", "Tam Bình", "Bình Minh", "Trà Ôn", "Bình Tân"]
+  },
+  {
+    province: "Trà Vinh",
+    district: ["Trà Vinh", "Càng Long", "Cầu Kè", "Tiểu Cần", "Châu Thành", "Cầu Ngang", "Duyên Hải"]
+  },
+  {
+    province: "Tiền Giang",
+    district: ["Mỹ Tho", "Gò Công", "Cai Lậy", "Tân Phước", "Cái Bè", "Cai Lậy", "Châu Thành", "Chợ Gạo", "Gò Công Tây", "Gò Công Đông", "Tân Phú Đông"]
+  },
+  {
+    province: "Thừa Thiên Huế",
+    district: ["Huế", "Phong Điền", "Quảng Điền", "Hương Trà", "Phú Vang", "Hương Thủy", "Nam Đông", "A Lưới"]
+  },
+  {
+    province: "Thanh Hóa",
+    district: ["Thanh Hóa", "Bỉm Sơn", "Sầm Sơn", "Quảng Xương", "Quan Hóa", "Tĩnh Gia", "Quảng Trạch", "Vĩnh Lộc", "Yên Định", "Thọ Xuân", "Thường Xuân", "Như Xuân", "Như Thanh", "Lang Chánh", "Ngọc Lặc", "Quảng Xương", "Như Hòa", "Nông Cống", "Đông Sơn", "Hà Trung", "Hoằng Hoá", "Nga Sơn", "Thạch Thành", "Vĩnh Thành", "Thiệu Hóa", "Triệu Sơn", "Thiệu Hoá", "Hậu Lộc", "Nông Cống", "Đông Hòa"]
   }
-  ];
+];
+console.log(provinces);
 provinces.forEach(function(province) {
   var option = document.createElement('option');
   option.value = province.province;
@@ -114,26 +139,19 @@ provinceSelect.addEventListener('change', function() {
     districtSelect.appendChild(option);
   });
 });
+//chuyển về trang order khi nhất button
+function redirectToOrderPage(productId) {
+  window.location.href = `/page/order/order.html?id=${order.id}`;
+}
 
-  // provinces.forEach(function(province) {
-  //   var option = document.createElement('option');
-  //   option.value = province.province;
-  //   option.text = province.province;
-  //   provinceSelect.appendChild(option);
-  // });
 
-  // provinceSelect.addEventListener('change', function() {
-  //   var selectedProvince = provinceSelect.value;
-  //   var selectedProvinceObj = provinces.find(function(province) {
-  //     return province.province === selectedProvince;
-  //   });
+// // Click on Order button 
+// function Order(){
+//   var name = document.getElementById('name__order').value;
+//   var email = document.getElementById('email__order').value;
+//   var phone = document.getElementById('phone__order').value;
+//   var address = document.getElementById('address__order').value;
+//   var province = document.getElementById('province__order').value;
+//   var district = document.getElementById('district__order').value;  
 
-  //   districtSelect.innerHTML = '';
-
-  //   selectedProvinceObj.district.forEach(function(district) {
-  //     var option = document.createElement('option');
-  //     option.value = district;
-  //     option.text = district;
-  //     districtSelect.appendChild(option);
-  //   });
-  // });
+// }

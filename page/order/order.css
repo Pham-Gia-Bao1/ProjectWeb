@@ -63,9 +63,7 @@ main {
 .information__order .contact__order input,.information__order .location select   {
     flex-basis: 50%;
 }
-.information__order .location select{
-    padding-right: 5px;
-}
+
 /* btn */
 .btn__order__box {
     width: 90%;

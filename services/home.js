@@ -33,7 +33,7 @@ fetch("/database/db.json")
                                 <div>
                                 
                                  <button>View</button>
-                                <button><i id="icon_cart" class="fas fa-shopping-cart"></i>Buy</button>
+                                <button><i id="icon_cart" class="fas fa-shopping-cart" onclick="redirectToOrderPage()"></i>Buy</button>
 
                                 </div>
                                 </div>
