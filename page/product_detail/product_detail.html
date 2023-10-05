@@ -137,7 +137,7 @@
                         <img src="/images/img_icon/icon shoping cart.svg" alt="">
                         Add cart
                     </button>
-                    <button id="product__btn__buy" class="btn_add_qtt" type="button" onclick="buy()">Buy</button>
+                    <button id="product__btn__buy" class="btn_add_qtt" type="button" onclick="redirectToOrderPage(productId)">Buy</button>
                 </div>
             </div>
         </div>
@@ -147,6 +147,7 @@
             <!-- Product container -->
 
         </div>
+        <script src="/services/order.js"></script>
     </main>
     <div class="footer">
         <div class="row-first">
@@ -182,6 +183,7 @@
     </div>
     <script src="/services/product_detail.js"></script>
     <script src="/services/home.js"></script>
+    <script src="/services/order.js"></script>
 </body>
 
 </html>

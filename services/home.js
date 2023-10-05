@@ -19,7 +19,7 @@ fetch("/database/db.json")
         const productHTML = productList.map((product) => {
             return `
             <div class="product">
-                    <a target="_self" id="card" href="/page/product_detail/product_detail.html?id=${product.id} ">
+                    <a target="_self" id="card" href="/page/product_detail/product_detail.html?id=${product.id}">
                             <p id="evaluate1">${product.productReviews}<i class="material-symbols-outlined">star</i></p>
                             <img id="main_img" src="${product.image1}" alt="${product.name}">
                             <h2>${product.name}</h2>
@@ -31,9 +31,12 @@ fetch("/database/db.json")
                             <div class="descriptiom_and_btn">
                                 <p>${product.description}</p>
                                 <div>
-                                
-                                 <button>View</button>
-                                <button><i id="icon_cart" class="fas fa-shopping-cart" onclick="redirectToOrderPage()"></i>Buy</button>
+                                <a target="_self" href="/page/product_detail/product_detail.html?id=${product.id}">
+                                <button id="btn_view">View</button>
+                                </a>
+                                 
+
+                                <a><button onclick="redirectToOrderPage(${product.id})"><i id="icon_cart" class="fas fa-shopping-cart"></i>Buy</button></a>
 
                                 </div>
                                 </div>
@@ -62,12 +65,11 @@ fetch("/database/db.json")
 
 
     });
-    const menuIcon = document.querySelector(".navbar_menu-icon")
-    const navList = document.querySelector(".navbar__ul");
-    menuIcon.addEventListener('click', () => {
-        menuIcon.classList.toggle("active");
-        navList.classList.toggle("active")
-    
-    })
-    
-    
+const menuIcon = document.querySelector(".navbar_menu-icon")
+const navList = document.querySelector(".navbar__ul");
+menuIcon.addEventListener('click', () => {
+    menuIcon.classList.toggle("active");
+    navList.classList.toggle("active")
+
+})
+

@@ -116,7 +116,6 @@ const provinces = [
     district: ["Thanh Hóa", "Bỉm Sơn", "Sầm Sơn", "Quảng Xương", "Quan Hóa", "Tĩnh Gia", "Quảng Trạch", "Vĩnh Lộc", "Yên Định", "Thọ Xuân", "Thường Xuân", "Như Xuân", "Như Thanh", "Lang Chánh", "Ngọc Lặc", "Quảng Xương", "Như Hòa", "Nông Cống", "Đông Sơn", "Hà Trung", "Hoằng Hoá", "Nga Sơn", "Thạch Thành", "Vĩnh Thành", "Thiệu Hóa", "Triệu Sơn", "Thiệu Hoá", "Hậu Lộc", "Nông Cống", "Đông Hòa"]
   }
 ];
-console.log(provinces);
 provinces.forEach(function(province) {
   var option = document.createElement('option');
   option.value = province.province;
@@ -141,17 +140,43 @@ provinceSelect.addEventListener('change', function() {
 });
 //chuyển về trang order khi nhất button
 function redirectToOrderPage(productId) {
-  window.location.href = `/page/order/order.html?id=${order.id}`;
+  window.location.href = `/page/order/order.html?id=${productId}`;
 }
 
+var id, name_product, price,quantity;
+function product_order_detail(){
 
-// // Click on Order button 
-// function Order(){
-//   var name = document.getElementById('name__order').value;
-//   var email = document.getElementById('email__order').value;
-//   var phone = document.getElementById('phone__order').value;
-//   var address = document.getElementById('address__order').value;
-//   var province = document.getElementById('province__order').value;
-//   var district = document.getElementById('district__order').value;  
+// JavaScript code
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get('id');
+fetch("http://localhost:3000/product")
+    .then((res) => res.json())
+    .then((data) => {
+        var product = false;
+        const productList = data;
+        console.table(data)
+        productList.forEach(element => {
+            if (productId == element.id) {
+                product = true;
+                var productDetailHTML = '';
 
-// }
+                if (product) {
+                    document.getElementById('price__order').innerHTML = element.newPrice + " VND";
+                    document.getElementById('product__img__order').src = element.image1;
+                    name_product = document.getElementById('procuct__name__order').innerHTML = element.name;
+                    
+                    price = document.getElementById('product__price__order').innerHTML = element.newPrice + " VND";
+                    
+                    quantity = document.getElementById('product__quantity__order').innerHTML = document.get('input__qty').value;
+
+                } else {
+                    document.getElementById("product-detail").innerHTML = "Product not found.";
+                }
+            }
+
+        });
+    });
+
+}
+console.log(name_product)
+product_order_detail();
