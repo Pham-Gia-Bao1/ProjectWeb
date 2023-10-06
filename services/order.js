@@ -1,5 +1,5 @@
 //List of province and district
-  //location
+//location
 const provinceSelect = document.getElementById('province__order');
 const districtSelect = document.getElementById('district__order');
 const provinces = [
@@ -33,7 +33,7 @@ const provinces = [
   },
   {
     province: "Lào Cai",
-    district: ["Thành phố Lào Cai","Bát Xát","Bảo Thắng","Bảo Yên","Sa Pa","Văn Bàn","Bắc Hà","Mường Khương","Si Ma Cai"]
+    district: ["Thành phố Lào Cai", "Bát Xát", "Bảo Thắng", "Bảo Yên", "Sa Pa", "Văn Bàn", "Bắc Hà", "Mường Khương", "Si Ma Cai"]
   },
   {
     province: "Hà Giang",
@@ -116,22 +116,22 @@ const provinces = [
     district: ["Thanh Hóa", "Bỉm Sơn", "Sầm Sơn", "Quảng Xương", "Quan Hóa", "Tĩnh Gia", "Quảng Trạch", "Vĩnh Lộc", "Yên Định", "Thọ Xuân", "Thường Xuân", "Như Xuân", "Như Thanh", "Lang Chánh", "Ngọc Lặc", "Quảng Xương", "Như Hòa", "Nông Cống", "Đông Sơn", "Hà Trung", "Hoằng Hoá", "Nga Sơn", "Thạch Thành", "Vĩnh Thành", "Thiệu Hóa", "Triệu Sơn", "Thiệu Hoá", "Hậu Lộc", "Nông Cống", "Đông Hòa"]
   }
 ];
-provinces.forEach(function(province) {
+provinces.forEach(function (province) {
   var option = document.createElement('option');
   option.value = province.province;
   option.text = province.province;
   provinceSelect.appendChild(option);
 });
 
-provinceSelect.addEventListener('change', function() {
+provinceSelect.addEventListener('change', function () {
   var selectedProvince = provinceSelect.value;
-  var selectedProvinceObj = provinces.find(function(province) {
+  var selectedProvinceObj = provinces.find(function (province) {
     return province.province === selectedProvince;
   });
 
   districtSelect.innerHTML = '';
 
-  selectedProvinceObj.district.forEach(function(district) {
+  selectedProvinceObj.district.forEach(function (district) {
     var option = document.createElement('option');
     option.value = district;
     option.text = district;
@@ -143,40 +143,108 @@ function redirectToOrderPage(productId) {
   window.location.href = `/page/order/order.html?id=${productId}`;
 }
 
-var id, name_product, price,quantity;
-function product_order_detail(){
+var id, name_product, price, quantity;
+function product_order_detail() {
 
-// JavaScript code
-const urlParams = new URLSearchParams(window.location.search);
-const productId = urlParams.get('id');
-fetch("http://localhost:3000/product")
+  // JavaScript code
+  const urlParams = new URLSearchParams(window.location.search);
+  const productId = urlParams.get('id');
+  fetch("http://localhost:3000/product")
     .then((res) => res.json())
     .then((data) => {
-        var product = false;
-        const productList = data;
-        console.table(data)
-        productList.forEach(element => {
-            if (productId == element.id) {
-                product = true;
-                var productDetailHTML = '';
+      var product = false;
+      const productList = data;
+      console.table(data)
+      productList.forEach(element => {
+        if (productId == element.id) {
+          product = true;
+          var productDetailHTML = '';
 
-                if (product) {
-                    document.getElementById('price__order').innerHTML = element.newPrice + " VND";
-                    document.getElementById('product__img__order').src = element.image1;
-                    name_product = document.getElementById('procuct__name__order').innerHTML = element.name;
-                    
-                    price = document.getElementById('product__price__order').innerHTML = element.newPrice + " VND";
-                    
-                    quantity = document.getElementById('product__quantity__order').innerHTML = document.get('input__qty').value;
+          if (product) {
+            document.getElementById('price__order').innerHTML = element.newPrice + " VND";
+            document.getElementById('product__img__order').src = element.image1;
+            name_product = document.getElementById('procuct__name__order').innerHTML = element.name;
 
-                } else {
-                    document.getElementById("product-detail").innerHTML = "Product not found.";
-                }
-            }
+            price = document.getElementById('product__price__order').innerHTML = element.newPrice + " VND";
 
-        });
+            quantity = document.getElementById('product__quantity__order').innerHTML = document.get('input__qty').value;
+
+          } else {
+            document.getElementById("product-detail").innerHTML = "Product not found.";
+          }
+        }
+
+      });
     });
+  var urlParams1 = new URLSearchParams(window.location.search);
+  var quantity_detail = urlParams1.get('quantity');
+
+  var quantity_order_after = document.getElementById("quantity_order").innerHTML = quantity_detail;
 
 }
-console.log(name_product)
 product_order_detail();
+
+
+function getDataFormOrder() {
+  var name = document.getElementById("name__order").value;
+  var email = document.getElementById("email__order").value;
+  var phone = document.getElementById("phone__order").value;
+  var address = document.getElementById("address__order").value;
+  var date = new Date().toLocaleDateString();
+  // var province = document.getElementById("province").value;
+  // var district = document.getElementById("district").value;
+  // var price_prduct = document.getElementById("price_product").value;
+  var quantity__order = document.getElementById("quantity_order").value;
+  // var total_price = price_prduct * quantity_product_order;
+
+
+  return {
+      name: name,
+      email: email,
+      phone: phone,
+      address: address,
+      date:date,
+      quantity:quantity__order,
+      // province: province,
+      // district: district,
+
+  };
+};
+
+// }
+// var urlParams1 = new URLSearchParams(window.location.search);
+// var quantity_detail = urlParams1.get('quantity');
+
+// var quantity_order_after = document.getElementById("quantity_order").value = quantity_detail;
+// function placeOrder() {
+//   var data = getDataFormOrder();
+
+//   // Kiểm tra các trường nhập liệu bắt buộc
+//   if (!data.name || !data.email || !data.phone || !data.address || !data.province || !data.district || (quantity_order_after == 0 || quantity_order_after == null)) {
+//       alert("Vui lòng nhập đầy đủ thông tin.");
+//       return;
+//   }
+
+//   // Gửi dữ liệu đặt hàng đến máy chủ hoặc xử lý dữ liệu theo nhu cầu của bạn
+//   // Ví dụ: gửi dữ liệu qua Ajax hoặc tạo một yêu cầu HTTP
+
+//   // Hiển thị hộp thoại thông báo thành công
+//   Swal.fire({
+//     icon: 'success',
+//     title: 'Đặt hàng thành công!',
+//     text: 'Cảm ơn bạn đã đặt hàng.',
+//     confirmButtonText: 'OK'
+// }).then(function () {
+//     // Xóa dữ liệu nhập liệu sau khi đặt hàng thành công
+//     // document.getElementById("name").value = "";
+//     // document.getElementById("email").value = "";
+//     // document.getElementById("phone").value = "";
+//     // document.getElementById("address").value = "";
+//     // document.getElementById("province").value = "";
+//     // document.getElementById("district").value = "";
+//     // document.getElementById("quantity_order").value = "";
+// });
+
+// }
+
+// fetch data

@@ -127,6 +127,13 @@ main {
     color: var(--orange-color); 
     font-weight: bold;
 }
+#quantity_order{
+    width: 60px;
+    outline: none;
+    border: 0;
+}
+#quantity_order:focus{
+    outline: none;}
 /* 
 
 .image__order{
