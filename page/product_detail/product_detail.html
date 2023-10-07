@@ -61,8 +61,7 @@
                 <a href="#">Login</a>
                 <a href="#">Sign Up</a>
             </div>
-            <ul class="navbar__ul">
-                <!-- all element choose -->
+            <ul class="navbar__ul"><!-- all element choose -->
                 <li> <a href="/page/homePage/home.html"><i class="material-symbols-outlined">home</i>Home</a></li>
                 <li> <a href="#"><i class="material-symbols-outlined">call</i>Contact Us</a></li>
                 <li> <a href="#"><i class="material-symbols-outlined">shopping_cart</i>Order</a></li>
@@ -86,13 +85,13 @@
                 <div class="secondary__img">
 
                     <div class="secodary__img__item">
-                        <img id="item__img1" class="item__img" src="/images/img_product/Americano2.jpg" alt="Photo">
+                        <img id="item__img1" class="item__img" onmouseover="choise_product(this)" src="/images/img_product/Americano2.jpg" alt="Photo">
                     </div>
                     <div class="secodary__img__item">
-                        <img id="item__img2" class="item__img" src="/images/img_product/Americano3.jpg" alt="Photo">
+                        <img id="item__img2" class="item__img" onmouseover="choise_product(this)" src="/images/img_product/Americano3.jpg" alt="Photo">
                     </div>
                     <div class="secodary__img__item">
-                        <img id="item__img3" class="item__img" src="/images/img_product/Americano2.jpg" alt="Photo">
+                        <img id="item__img3" class="item__img" onmouseover="choise_product(this)" src="/images/img_product/Americano2.jpg" alt="Photo">
                     </div>
                 </div>
             </div>
@@ -115,9 +114,7 @@
                         <p id="new__price">19.000 VND</p>
                         <p id="old__price">35.000 VND</p>
                     </div>
-                    <p id="describe">Crushed chocolate refers to broken or crushed pieces of chocolate commonly used in
-                        baking and
-                        desserts. It adds flavor, texture, and visual appeal to treats like cookies, cakes, and ice
+                    <p id="describe">Crushed chocolate refers to broken or crushed pieces of chocolate commonly used inbaking anddesserts. It adds flavor, texture, and visual appeal to treats like cookies, cakes, and ice
                         creams.
                     </p>
                 </div>
@@ -127,7 +124,7 @@
                     </p>
                     <div class="btn__box">
                         <button onclick="decrement()">-</button>
-                        <input id="input__qty" type="number" min="0">
+                        <input id="input__qty" type="number" min="1" value="1">
                         <button onclick="increment()">+</button>
                     </div>
                 </div>
@@ -172,9 +169,8 @@
                 </div>
                 <div class="menu-footer-item">
                     <div class="footer-item-heading">Follow Us</div>
-                    <div class="footer-item-paragrap"><i class="fa-brands fa-instagram icon-footer"></i>Instagram</div>
-                    <div class="footer-item-paragrap"><i class="fa-brands fa-facebook icon-footer"></i>Facebook</div>
-                    <div class="footer-item-paragrap"><i class="fa-brands fa-twitter icon-footer"></i>Twitter</div>
+                    <div class="footer-item-paragrap"><i class="fa-brands fa-instagram icon-footer"></i>Instagram</div><div class="footer-item-paragrap"><i class="fa-brands fa-facebook icon-footer"></i>Facebook</div>
+<div class="footer-item-paragrap"><i class="fa-brands fa-twitter icon-footer"></i>Twitter</div>
                 </div>
             </div>
             <div class="footer-content1">We aim to provide a great time for everyone</div>

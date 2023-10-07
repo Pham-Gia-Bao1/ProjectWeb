@@ -141,7 +141,9 @@ provinceSelect.addEventListener('change', function () {
 //chuyển về trang order khi nhất button
 function redirectToOrderPage(productId) {
   window.location.href = `/page/order/order.html?id=${productId}`;
+
 }
+
 
 var id, name_product, price, quantity;
 function product_order_detail() {
@@ -149,19 +151,20 @@ function product_order_detail() {
   // JavaScript code
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get('id');
+
   fetch("http://localhost:3000/product")
     .then((res) => res.json())
     .then((data) => {
       var product = false;
       const productList = data;
-      console.table(data)
+
       productList.forEach(element => {
         if (productId == element.id) {
           product = true;
           var productDetailHTML = '';
 
           if (product) {
-            document.getElementById('price__order').innerHTML = element.newPrice + " VND";
+            document.getElementById('price__order').innerHTML = element.newPrice * quantity_order_after + " VND";
             document.getElementById('product__img__order').src = element.image1;
             name_product = document.getElementById('procuct__name__order').innerHTML = element.name;
 
@@ -176,75 +179,85 @@ function product_order_detail() {
 
       });
     });
-  var urlParams1 = new URLSearchParams(window.location.search);
-  var quantity_detail = urlParams1.get('quantity');
-
-  var quantity_order_after = document.getElementById("quantity_order").innerHTML = quantity_detail;
 
 }
+var urlParams1 = new URLSearchParams(window.location.search);var quantity_detail = urlParams1.get('quantity');
+
+if (quantity_detail == null || quantity_detail == NaN) {
+  var quantity_order_after = document.getElementById("quantity_order").innerHTML = 1;
+}
+else {
+  var quantity_order_after = document.getElementById("quantity_order").innerHTML = quantity_detail;
+}
+
 product_order_detail();
 
 
 function getDataFormOrder() {
-  var name = document.getElementById("name__order").value;
-  var email = document.getElementById("email__order").value;
-  var phone = document.getElementById("phone__order").value;
-  var address = document.getElementById("address__order").value;
-  var date = new Date().toLocaleDateString();
-  // var province = document.getElementById("province").value;
-  // var district = document.getElementById("district").value;
-  // var price_prduct = document.getElementById("price_product").value;
+  var name_order = document.getElementById("name__order").value;
+  var email_order = document.getElementById("email__order").value;
+  var phone_order = document.getElementById("phone__order").value;
+  var address_order = document.getElementById("address__order").value;
+  var date_order = new Date().toLocaleDateString();
   var quantity__order = document.getElementById("quantity_order").value;
-  // var total_price = price_prduct * quantity_product_order;
-
+  var selectElement = document.getElementById("province__order");
+  var province_order = selectElement.value;
+  var selectElement = document.getElementById("district__order");
+  var district_order = selectElement.value;
 
   return {
-      name: name,
-      email: email,
-      phone: phone,
-      address: address,
-      date:date,
-      quantity:quantity__order,
-      // province: province,
-      // district: district,
+    name: name_order,
+    email: email_order,
+    phone: phone_order,
+    address: address_order,
+    date: date_order,
+    quantity: quantity__order,
+    province: province_order,
+    district: district_order,
 
   };
 };
 
-// }
-// var urlParams1 = new URLSearchParams(window.location.search);
-// var quantity_detail = urlParams1.get('quantity');
+function placeOrder() {
+  var data = getDataFormOrder();
 
-// var quantity_order_after = document.getElementById("quantity_order").value = quantity_detail;
-// function placeOrder() {
-//   var data = getDataFormOrder();
+  // Kiểm tra các trường nhập liệu bắt buộc
+  if (!data.name || !data.email || !data.phone || !data.address || !data.province || !data.district || (quantity_order_after == 0 || quantity_order_after == null)) {
+    alert("Vui lòng nhập đầy đủ thông tin.");
+    return;
+  }
 
-//   // Kiểm tra các trường nhập liệu bắt buộc
-//   if (!data.name || !data.email || !data.phone || !data.address || !data.province || !data.district || (quantity_order_after == 0 || quantity_order_after == null)) {
-//       alert("Vui lòng nhập đầy đủ thông tin.");
-//       return;
-//   }
+  Swal.fire({
+    icon: 'success',
+    title: 'Successfully Sent!',
+    text: 'Thank you for contacting us.',
+    showConfirmButton: true,
+  })
 
-//   // Gửi dữ liệu đặt hàng đến máy chủ hoặc xử lý dữ liệu theo nhu cầu của bạn
-//   // Ví dụ: gửi dữ liệu qua Ajax hoặc tạo một yêu cầu HTTP
+}
 
-//   // Hiển thị hộp thoại thông báo thành công
-//   Swal.fire({
-//     icon: 'success',
-//     title: 'Đặt hàng thành công!',
-//     text: 'Cảm ơn bạn đã đặt hàng.',
-//     confirmButtonText: 'OK'
-// }).then(function () {
-//     // Xóa dữ liệu nhập liệu sau khi đặt hàng thành công
-//     // document.getElementById("name").value = "";
-//     // document.getElementById("email").value = "";
-//     // document.getElementById("phone").value = "";
-//     // document.getElementById("address").value = "";
-//     // document.getElementById("province").value = "";
-//     // document.getElementById("district").value = "";
-//     // document.getElementById("quantity_order").value = "";
-// });
+// date time
+var date__order = "";
+function getCurrentTime() {
+  var currentTime = new Date();
+  var hours = currentTime.getHours();
+  var minutes = currentTime.getMinutes();
+  var seconds = currentTime.getSeconds();
 
-// }
+  // Định dạng lại đối tượng thời gian
+  if (hours < 10) {
+    hours = '0' + hours;
+  }
+  if (minutes < 10) {
+    minutes = '0' + minutes;
+  }
+  if (seconds < 10) {
+    seconds = '0' + seconds;
+  }
 
-// fetch data
+  var formattedTime = hours + ':' + minutes + ':' + seconds;
+  date__order = formattedTime;
+  document.getElementById("date__order").innerHTML = date__order;
+  
+}
+getCurrentTime();

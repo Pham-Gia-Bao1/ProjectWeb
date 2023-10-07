@@ -24,7 +24,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
+  <!-- Thêm thư viện SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- javascript -->
     <script src="/services/home.js"></script>
     <title>Order-page</title>
@@ -58,8 +59,7 @@
             </div>
             <ul class="navbar__ul">
                 <!-- all element choose -->
-                <li> <a href="/page/homePage/home.html"><i class="material-symbols-outlined">home</i>Home</a></li>
-                <li> <a href="#"><i class="material-symbols-outlined">call</i>Contact Us</a></li>
+                <li> <a href="/page/homePage/home.html"><i class="material-symbols-outlined">home</i>Home</a></li><li> <a href="#"><i class="material-symbols-outlined">call</i>Contact Us</a></li>
                 <li> <a href="#"><i class="material-symbols-outlined">shopping_cart</i>Order</a></li>
                 <li> <a href="#"><i class="material-symbols-outlined">history</i>History</a></li>
                 <li class="navbar__li--mobile"> <a href="#"><i class="material-symbols-outlined">login</i>Login</a></li>
@@ -101,7 +101,8 @@
                         </div>
                         <p id="procuct__name__order"> Arabica</p>
                         <p id="product__price__order">100.000 VND</p>
-                        <p  id="quantity_order" value="1">1</p>
+                        <p  id="quantity_order"></p>
+                        <p id="date__order"></p>
                     </div>
                 </div>
             </div>

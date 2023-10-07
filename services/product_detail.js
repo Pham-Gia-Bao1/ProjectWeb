@@ -1,20 +1,18 @@
 function increment() {
     var inputQty = document.getElementById('input__qty');
-    var currentQty = parseInt(inputQty.value) || 0;
+    var currentQty = parseInt(inputQty.value) || 1;
     var newQty = currentQty + 1;
     inputQty.value = newQty;
-
 }
 
 function decrement() {
     var inputQty = document.getElementById('input__qty');
-    var currentQty = parseInt(inputQty.value) || 0;
+    var currentQty = parseInt(inputQty.value) || 1;
     var newQty = currentQty - 1;
-    if (newQty < 0) {
-        newQty = 0;
+    if (newQty < 1) {
+        newQty = 1;
     }
     inputQty.value = newQty;
-
 }
 
 
@@ -62,12 +60,5 @@ function detail() {
 }
 
 detail();
-
-    //  Ở trang product detail
-// document.getElementById("product__btn__buy").addEventListener("click", function() {
-//     var quantity = document.getElementById("input__qty").value;
-//     var orderUrl = "/page/order/order.html?quantity=" + quantity;
-//     window.location.href = orderUrl;
-// });
 
 

@@ -34,8 +34,6 @@ fetch("/database/db.json")
                                 <a target="_self" href="/page/product_detail/product_detail.html?id=${product.id}">
                                 <button id="btn_view">View</button>
                                 </a>
-                                 
-
                                 <a><button onclick="redirectToOrderPage(${product.id})"><i id="icon_cart" class="fas fa-shopping-cart"></i>Buy</button></a>
 
                                 </div>
@@ -71,5 +69,4 @@ menuIcon.addEventListener('click', () => {
     menuIcon.classList.toggle("active");
     navList.classList.toggle("active")
 
-})
-
+});
