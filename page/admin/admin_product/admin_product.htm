@@ -52,7 +52,6 @@
       </tr>
     </table>
   </div>
-
   <div class="modal" id="myModal">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -110,46 +109,48 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
-          <form id="add_product_form">
+          <form id="createProductForm">
            <div class="input-field">
             <label for="nameInput">Name: </label>
-            <input type="text" id="nameInput" name="nameInput">
+            <input type="text" id="productName" name="productName"> 
            </div>
            <div class="input-field">
             <label for="qtyInput">Quantity: </label>
-            <input type="text" id="qtyInput" name="qtyInput">
+            <input type="number" id="quantity" name="quantity"> 
            </div>
            <div class="input-field">
             <label for="newPriceInput">New Price: </label>
-            <input type="text" id="newPriceInput" name="newPriceInput">
+            <input type="number" id="newPrice" name="newPrice"><br>
            </div>
            <div class="input-field">
             <label for="oldPriceInput">Old Price </label>
-            <input type="text" id="oldPriceInput" name="oldPriceInput">
+            <input type="number" id="oldPrice" name="oldPrice">
            </div> 
            <div class="input-field">
             <label for="imageFileInput1">Image 1: </label>
-            <input type="file" id="imageFileInput1" name="imageFileInput1">
+            <input type="file" id="image1" name="image1">
            </div>
            <div class="input-field">
             <label for="imageFileInput2">Image 2: </label>
-            <input type="file" id="imageFileInput2" name="imageFileInput2">
+            <input type="file" id="image2" name="image2">
            </div>
             <div class="input-field">
               <label for="imageFileInput3">Image 3: </label>
-              <input type="file" id="imageFileInput3" name="imageFileInput3">
+              <input type="file" id="image3" name="image3">
             </div>
             <div class="input-field">
-              <label for="descriptionInput" id="content-des">Description </label>
-            <input type="text" id="descriptionInput" name="descriptionInput">
+              <label for="description" id="content-des">Description </label>
+              <input type="text" id="description" name="description">
             </div>
             <div class="modal-footer">
-          <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" onclick="addProducts()" value="Create">Create</button>
-        </div>
+              <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" onclick="addProducts()" value="Create">Create</button>
+            </div>
           </form>
         </div>
 
       </div>
     </div>
   </div>
-<script src="/services/admin.js"></script>
+  <script src="/services/admin.js"></script>
+</body>
+</html>

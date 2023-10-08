@@ -1,14 +1,58 @@
-const createProduct= document.getElementById('add_product_form')
-createProduct.addEventListener('submit', addProducts)
- function fetchProducts(){
-   fetch ('http://localhost:3000/product')
-  .then(respone => respone.json())
-  .then(data =>{
-  var list_product= document.getElementById('list_product');
-  data.forEach(product => {
-    var row= document.createElement("tr");
-    var imageCell = document.getElementById('imageCell');
-    row.innerHTML= `
+const createProduct = document.getElementById("createProductForm");
+createProduct.addEventListener("submit", addProducts_test);
+
+function addProducts_test(event) {
+  event.preventDefault();
+
+  const productName = document.getElementById("productName").value;
+  const quantity = document.getElementById("quantity").value;
+  const newPrice = document.getElementById("newPrice").value;
+  const oldPrice = document.getElementById("oldPrice").value;
+  const image1 = document.getElementById("image1").value;
+  const image2 = document.getElementById("image2").value;
+  const image3 = document.getElementById("image3").value;
+  const description = document.getElementById("description").value;
+
+  const body = {
+    name: productName,
+    quantity: quantity,
+    newPrice: newPrice,
+    oldPrice: oldPrice,
+    image1: image1,
+    image2: image2,
+    image3: image3,
+    description: description,
+    type: "",
+    productReviews: "",
+  };
+
+  console.log(body);
+
+  fetch("http://localhost:3000/product", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Product created successfully!", data);
+    })
+    .catch((error) => {
+      console.error("Error creating product:", error);
+    });
+}
+
+function fetchProducts() {
+  fetch("http://localhost:3000/product")
+    .then((respone) => respone.json())
+    .then((data) => {
+      var list_product = document.getElementById("list_product");
+      data.forEach((product) => {
+        var row = document.createElement("tr");
+        var imageCell = document.getElementById("imageCell");
+        row.innerHTML = `
       <td>${product.id}</td>
       <td> ${product.name}</td>
       <td id="imageCell"></td>
@@ -19,45 +63,46 @@ createProduct.addEventListener('submit', addProducts)
           <button id="delete_btn_product">Delete</button>
       </td>
     `;
-    var img = document.createElement('img');
-      img.src = product.image1;
-      img.width = 250; // Thiết lập chiều rộng ảnh
+        var img = document.createElement("img");
+        img.src = product.image1;
+        img.width = 250; // Thiết lập chiều rộng ảnh
 
-      // Thêm ảnh vào thẻ td trong hàng sản phẩm
-      row.querySelector('td:nth-child(3)').appendChild(img);
-    list_product.appendChild(row);
-  });
-  // Save data to local storage
-    localStorage.setItem('products', JSON.stringify(data));
-});
+        // Thêm ảnh vào thẻ td trong hàng sản phẩm
+        row.querySelector("td:nth-child(3)").appendChild(img);
+        list_product.appendChild(row);
+      });
+      // Save data to local storage
+      localStorage.setItem("products", JSON.stringify(data));
+    });
 }
 fetchProducts();
-function addProducts(){
-  var form= document.getElementById('add-product-form');
-  form.addEventListener('submit', function(e){
+
+function addProducts() {
+  var form = document.getElementById("add-product-form");
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
-    const name = document.getElementById('nameInput').value;
-    const quantity = document.getElementById('qtyInput').value;
-    const newPrice = document.getElementById('newPriceInput').value;
-    const oldPrice = document.getElementById('oldPriceInput').value;
-    const image1 = document.getElementById('imageFileInput1').value;
-    const image2 = document.getElementById('imageFileInput2').value;
-    const image3 = document.getElementById('imageFileInput3').value;
-    const description = document.getElementById('descriptionInput').value;
-    const type='';
-    const productReviews='';
-    console.log(name, quantity, newPrice, oldPrice)
+    const name = document.getElementById("nameInput").value;
+    const quantity = document.getElementById("qtyInput").value;
+    const newPrice = document.getElementById("newPriceInput").value;
+    const oldPrice = document.getElementById("oldPriceInput").value;
+    const image1 = document.getElementById("imageFileInput1").value;
+    const image2 = document.getElementById("imageFileInput2").value;
+    const image3 = document.getElementById("imageFileInput3").value;
+    const description = document.getElementById("descriptionInput").value;
+    const type = "";
+    const productReviews = "";
+    console.log(name, quantity, newPrice, oldPrice);
     // fetch('http://localhost:3000/product',{
     //   method: 'POST',
     //   body: JSON.stringify({
-    //     "name": name, 
+    //     "name": name,
     //     "quantity": quantity,
     //     "newPrice": newPrice,
     //     "oldPrice": oldPrice,
     //     "image1": image1,
     //     "image2": image2,
     //     "image3": image3,
-    //     "description": description, 
+    //     "description": description,
     //     "type": type,
     //     "productReviews": productReviews
     //   }),
@@ -104,9 +149,5 @@ function addProducts(){
     //   // document.getElementById('descriptionInput').value = '';
     //   // fetchProducts();
     // })
-  })
-
+  });
 }
-
-
-
