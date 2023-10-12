@@ -15,8 +15,7 @@ function fetchCustomers() {
           <td>
             <button id="update_btn_product">Update</button>
             <button id="delete_btn_product" onclick="delete_customer(${customer.id})">Delete</button>
-            <button class="update_btn_product">Update</button>
-            <button class="delete_btn_product" onclick="delete_customer(${customer.id})">Delete</button>
+         
           </td>
         `;
       });
@@ -25,16 +24,16 @@ function fetchCustomers() {
 fetchCustomers();
 
 
-// delete customer
-// function delete_customer(id) {
-//   fetch(`http://localhost:3000/customer/${id}`, {
-//     method: "DELETE",
-//   })
-//     .then(() => {
-//       alert("Delete success");
-//       fetchCustomers(); // Gọi lại hàm fetchCustomers() để cập nhật danh sách khách hàng sau khi xóa
-//     })
-//     .catch(() => {
-//       alert("Delete fail");
-//     });
-// }
+delete customer
+function delete_customer(id) {
+  fetch(`http://localhost:3000/customer/${id}`, {
+    method: "DELETE",
+  })
+    .then(() => {
+      fetchCustomers(); // Gọi lại hàm fetchCustomers() để cập nhật danh sách khách hàng sau khi xóa
+      alert("Delete success");
+    })
+    .catch(() => {
+      alert("Delete fail");
+    });
+}
