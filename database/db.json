@@ -23,11 +23,11 @@
   ],
   "customer": [
     {
-      "name": "Ho Thi Nguyen thi",
+      "name": "Ho Thi Nguyen thi nguyen",
       "password": "thi.com123",
       "phoneNumber": "0123432431",
       "email": "thi.ho25@student.com",
-      "role_id": "undefined",
+      "roleId": "undefined",
       "address": "Chan Ro village Dakrong commune Dakrong district Quang Tri province",
       "id": 5
     },
@@ -86,13 +86,22 @@
       "password": "thao.com123"
     },
     {
-      "name": "tuyen",
+      "name": "tuyen ho thi",
       "password": "jdfgdhgsd",
-      "phoneNumber": "95860546",
-      "email": "tuyen.nguyen25@student.passerellesnumeriques.org",
-      "roleId": "54665",
-      "address": "5656",
+      "phoneNumber": "95860006",
+      "email": "tyuyen.ho25@student.passerellesnumeriques.org",
+      "roleId": "undefined",
+      "address": "Quang Tri province",
       "id": 12
+    },
+    {
+      "name": "ho van linh",
+      "password": "123.commm",
+      "phoneNumber": "0123456789",
+      "email": "linh.ho25@student.passerellesnumeriques.org",
+      "roleId": "2",
+      "address": "quang nam province",
+      "id": 13
     }
   ],
   "product": [
