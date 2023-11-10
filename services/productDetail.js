@@ -159,6 +159,7 @@ function getUserData() {
 const userData = getUserData();
 var userId = userData.id;
 
+
 let cartItem = [];
 fetch(`https://coffee-web-api-dkrq.onrender.com/carts`)
   .then((response) => response.json())
@@ -166,6 +167,7 @@ fetch(`https://coffee-web-api-dkrq.onrender.com/carts`)
     cartItems = cartItem.concat(productData);
     console.log(productData, "dha9dyh89s");
   });
+
 
 function addToCart(id) {
   if (!userId) {

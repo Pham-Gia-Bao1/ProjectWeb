@@ -54,7 +54,9 @@ body {
   padding: 0 10px 10px 10px;
   border: 2px solid transparent;
   transition: all 0.3s ease;
-  background-color: #a56a6a;
+  background-color: #c58f8f;
+  border-radius: 8px;
+  padding: 5px;
 }
 #content .information__order label {
   padding-left: 10px;
@@ -63,6 +65,8 @@ body {
 #content .information__order input:focus {
   border-bottom: 2px solid rgb(187, 187, 187);
   transition: all 0.1s inherit linear;
+  background-color: rgb(192, 191, 191);
+  color: black !important;
 }
 
 .information__order select {
@@ -93,12 +97,15 @@ body {
 }
 .product__order{
   overflow-x: hidden;
+  
 }
 
 .product__order1 {
   margin-bottom: 30px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 20px;
+  height: 100vh !important;
+  overflow-x: hidden;
  
  
   
@@ -376,6 +383,15 @@ label{
 }
 #product__img__order{
    width: 100px;
+}
+#qrcode{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#qrcode svg{
+    width: 400px;
+    
 }
 
 #qrcode,#code{
